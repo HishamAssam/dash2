@@ -2,8 +2,6 @@
 import os
 from random import randint
 
-import plotly.plotly as py
-from plotly.graph_objs import *
 
 import flask
 import dash
@@ -19,7 +17,9 @@ server = flask.Flask(__name__)
 server.secret_key = os.environ.get('secret_key', str(randint(0, 1000000)))
 app = dash.Dash(__name__, server=server)
 
-
+app.layout = html.Div(
+html.H1(children="Hello Dash!")
+)
 # Put your Dash code here
 
 
