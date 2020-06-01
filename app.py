@@ -18,4 +18,4 @@ html.H1(children="Hello Dash!")
 
 # Run the Dash app
 if __name__ == '__main__':
-    app.server.run(debug=True, threaded=True)
+    app.server.run(debug=True, use_reloader=False)
