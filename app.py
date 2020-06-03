@@ -23,7 +23,7 @@ def updateGender(g):
 app.run_server(debug=True, use_reloader=False)
 
 port = int(os.environ.get('PORT', 5000))
-
+print(port)
 # Run the Dash app
 if __name__ == '__main__':
     app.myServer.run(debug=True, use_reloader=False, port=port)
