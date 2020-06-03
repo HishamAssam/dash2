@@ -1,3 +1,4 @@
+import os
 import flask
 import plotly.express as px
 import dash
@@ -21,7 +22,8 @@ def updateGender(g):
     return  px.scatter(tips.query("sex=='"+g+"'"), x="total_bill", y="tip")
 app.run_server(debug=True, use_reloader=False)
 
+port = int(os.environ.get('PORT', 5000))
 
 # Run the Dash app
 if __name__ == '__main__':
-    app.myServer.run(debug=True, use_reloader=False, port=8020)
+    app.myServer.run(debug=True, use_reloader=False, port=port)
