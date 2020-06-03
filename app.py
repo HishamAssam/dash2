@@ -1,3 +1,6 @@
+import os
+from random import randint
+
 import flask
 import dash
 import dash_core_components as dcc
@@ -6,6 +9,7 @@ from dash.dependencies import Input, Output
 
 #
 myServer = flask.Flask(__name__)
+myServer.secret_key = os.environ.get('secret_key', str(randint(0, 1000000)))
 app = dash.Dash(__name__, server=myServer)
 
 
