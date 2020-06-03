@@ -1,4 +1,3 @@
-import os
 import flask
 import plotly.express as px
 import dash
@@ -10,7 +9,7 @@ from dash.dependencies import Input, Output
 myServer = flask.Flask(__name__)
 app = dash.Dash(__name__, server=myServer)
 
-tips= px.data.tips().head(100)
+tips= px.data.tips()
 fig = px.scatter(tips, x="total_bill", y="tip")
 
 app.layout = html.Div([
@@ -21,8 +20,7 @@ app.layout = html.Div([
 def updateGender(g):
     return  px.scatter(tips.query("sex=='"+g+"'"), x="total_bill", y="tip")
 
-port = int(os.environ.get('PORT', 5000))
-print(port)
-# Run the Dash app
+
+  # Run the Dash app
 if __name__ == '__main__':
-    app.myServer.run(debug=True, use_reloader=False, port=port)
+    app.myServer.run(debug=True, use_reloader=False)
