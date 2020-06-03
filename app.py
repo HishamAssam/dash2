@@ -8,9 +8,9 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 
 #
-myServer = flask.Flask(__name__)
-myServer.secret_key = os.environ.get('secret_key', str(randint(0, 1000000)))
-app = dash.Dash(__name__, server=myServer)
+server = flask.Flask(__name__)
+server.secret_key = os.environ.get('secret_key', str(randint(0, 1000000)))
+app = dash.Dash(__name__, server=server)
 
 
 app.layout = html.Div([
@@ -31,4 +31,4 @@ def calc(val):
 
 # Run the Dash app
 if __name__ == '__main__':
-    app.myServer.run(debug=True, use_reloader=False)
+    app.server.run(debug=True, use_reloader=False)
