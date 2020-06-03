@@ -4,14 +4,9 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 
-# Setup the app
-# Make sure not to change this file name or the variable names below,
-# the template is configured to execute 'server' on 'app.py'
-server = flask.Flask("main")
-app = dash.Dash("main", server=server)
 
-
-
+myServer = flask.Flask(__name__)
+app = dash.Dash(__name__, server=myServer)
 
 
 app.layout = html.Div([
@@ -31,4 +26,5 @@ def calc(val):
 
 
 # Run the Dash app
-app.server.run(debug=True, use_reloader=False)
+if __name__ == '__main__':
+    app.server.run(debug=True, use_reloader=False)
