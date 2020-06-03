@@ -9,7 +9,7 @@ from dash.dependencies import Input, Output
 myServer = flask.Flask(__name__)
 app = dash.Dash(__name__, server=myServer)
 
-tips= px.data.tips
+tips= px.data.tips()
 fig = px.scatter(tips, x="total_bill", y="tip")
 
 app.layout = html.Div([
