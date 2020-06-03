@@ -1,13 +1,10 @@
-import flask
-import plotly.express as px
-import dash
-import dash_core_components as dcc
-import dash_html_components as html
+import flask; import plotly.express as px
+import dash; import dash_core_components as dcc; import dash_html_components as html
 from dash.dependencies import Input, Output
 
-#
-myServer = flask.Flask(__name__)
-app = dash.Dash(__name__, server=myServer)
+# Setup the app. The server & app names should match those in Procfile 
+server = flask.Flask(__name__)
+app = dash.Dash(__name__, server=server)
 
 tips= px.data.tips()
 fig = px.scatter(tips, x="total_bill", y="tip")
@@ -21,6 +18,6 @@ def updateGender(g):
     return  px.scatter(tips.query("sex=='"+g+"'"), x="total_bill", y="tip")
 
 
-  # Run the Dash app
+# Run the Dash app
 if __name__ == '__main__':
-    app.myServer.run(debug=True, use_reloader=False)
+    app.server.run(debug=True, use_reloader=False)
