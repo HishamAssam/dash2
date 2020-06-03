@@ -20,7 +20,6 @@ app.layout = html.Div([
 @app.callback(Output('fig1', 'figure'),[Input('gender1', 'value')])
 def updateGender(g):
     return  px.scatter(tips.query("sex=='"+g+"'"), x="total_bill", y="tip")
-app.run_server(debug=True, use_reloader=False)
 
 port = int(os.environ.get('PORT', 5000))
 print(port)
