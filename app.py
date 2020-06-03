@@ -24,4 +24,4 @@ app.run_server(debug=True, use_reloader=False)
 
 # Run the Dash app
 if __name__ == '__main__':
-    app.myServer.run(debug=True, use_reloader=False)
+    app.myServer.run(debug=True, use_reloader=False, port=8020)
